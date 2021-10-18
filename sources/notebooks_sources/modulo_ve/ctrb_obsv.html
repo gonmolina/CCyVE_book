@@ -702,7 +702,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Por ejemplo para escribir <span class="math notranslate nohighlight">\(sys\)</span> (que está ahora en espacio de estados) en su forma canónica de controlabilidad podemos hacer</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;reachable&#39;</span><span class="p">)</span> <span class="c1"># controlable</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sys_c</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;reachable&#39;</span><span class="p">)</span> <span class="c1"># controlable</span>
+<span class="n">sys_c</span><span class="p">,</span> <span class="n">Tc</span>
 </pre></div>
 </div>
 </div>
@@ -711,7 +712,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Si queremos la forma canónica de observabilidad podemos hacer:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;observable&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sys_o</span><span class="p">,</span><span class="n">To</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;observable&#39;</span><span class="p">)</span>
+<span class="n">sys_o</span><span class="p">,</span> <span class="n">To</span>
 </pre></div>
 </div>
 </div>
@@ -719,7 +721,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Existe otra forma canónica de representación en espacio de estados que se la conoce como forma canónica modal. Esta la podemos obtener haciendo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;modal&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sys_m</span><span class="p">,</span> <span class="n">Tm</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;modal&#39;</span><span class="p">)</span>
+<span class="n">sys_m</span><span class="p">,</span> <span class="n">Tm</span>
 </pre></div>
 </div>
 </div>
@@ -816,6 +819,14 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G1</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">G2</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">G1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G2</span>
 </pre></div>
 </div>
 </div>
@@ -864,7 +875,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Obtengamos la forma canónica de controlabilidad del sistema</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys_c</span><span class="p">,</span> <span class="s1">&#39;reachable&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sys_c</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys_c</span><span class="p">,</span> <span class="s1">&#39;reachable&#39;</span><span class="p">)</span>
+<span class="n">sys_c</span>
 </pre></div>
 </div>
 </div>
@@ -895,7 +907,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Obtengamos la forma canónica observable:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys_o</span><span class="p">,</span> <span class="s1">&#39;observable&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sys_o</span><span class="p">,</span> <span class="n">To</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys_o</span><span class="p">,</span> <span class="s1">&#39;observable&#39;</span><span class="p">)</span>
+<span class="n">sys_o</span>
 </pre></div>
 </div>
 </div>
@@ -921,7 +934,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Estas dos mismas propiedades pueden ser analizadas con la forma modal. Tomemos el sistema <span class="math notranslate nohighlight">\(sys_C\)</span> donde la entrada esta conectada a <span class="math notranslate nohighlight">\(G1\)</span> y la salida a <span class="math notranslate nohighlight">\(G2\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys_c</span><span class="p">,</span> <span class="s1">&#39;modal&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sys_mc</span><span class="p">,</span> <span class="n">Tmc</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys_c</span><span class="p">,</span> <span class="s1">&#39;modal&#39;</span><span class="p">)</span>
+<span class="n">sys_mc</span>
 </pre></div>
 </div>
 </div>
@@ -931,7 +945,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Probemos ahora con la segunda conexión:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys_o</span><span class="p">,</span> <span class="s1">&#39;modal&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sys_mo</span><span class="p">,</span> <span class="n">Tmo</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys_o</span><span class="p">,</span> <span class="s1">&#39;modal&#39;</span><span class="p">)</span>
+<span class="n">sys_mo</span>
 </pre></div>
 </div>
 </div>
