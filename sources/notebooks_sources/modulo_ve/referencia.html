@@ -91,7 +91,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="canonical" href="https://gonmolina.github.io/CCyVE_book/sources/notebooks_sources/modulo_ve/referencia.html" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="Diseño de estimadores" href="estimadores.html" />
+    <link rel="next" title="Lugar simétrico de las raíces" href="LSR.html" />
     <link rel="prev" title="Análisis de los sistemas en su forma de espacio de estados" href="ctrb_obsv.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -388,6 +388,11 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="LSR.html">
+   Lugar simétrico de las raíces
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="estimadores.html">
    Diseño de estimadores
   </a>
@@ -521,11 +526,6 @@ commentsRunWhenDOMLoaded(addUtterances);
    Elección de la ubicación de los polos a lazo cerrado
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lugar-simetrico-de-las-raices">
-   Lugar simétrico de las raíces
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -611,28 +611,6 @@ N_u\\ \end{bmatrix} =
 <p>Esto es perfectamente factible en control moderno. Sin embargo, tiene la desventaja que no sabemos para nada que sucederá con el esfuerzo de control <span class="math notranslate nohighlight">\(u\)</span>. Ubicando los polos de esta manera podemos obtener esfuerzos de control imposibles de realizar por nuestros actuadores, o que lleven a consumos de energías demasiado altos para nuestro sistema.</p>
 <p>Por esto, lo más recomendable es usar técnicas de control óptimo para seleccionar los polos del sistema a lazo cerrado.</p>
 </div>
-<div class="section" id="lugar-simetrico-de-las-raices">
-<h2>Lugar simétrico de las raíces<a class="headerlink" href="#lugar-simetrico-de-las-raices" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Una técnica de control óptimo ampliamente usado es el control <code class="docutils literal notranslate"><span class="pre">regulador</span> <span class="pre">cuadrático</span> <span class="pre">lineal</span> <span class="pre">(LQR)</span></code>. En este curso veremos una versión simplificada que se conoce como <strong>Lugar de las Raíces Simétrico</strong>. Esta versión simplificada consiste en resolver el problema de minimización del siguiente índice de costo:</p>
-<div class="math notranslate nohighlight">
-\[\mathcal J = \int_0^{\infty}\left[\rho z^2(t)+u^2(t)\right]dt\]</div>
-<p>donde:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray}
-\mathbf{\dot x} = \mathbf{Ax}+\mathbf B u\\
-z =  \mathbf{C_1x}\\
-\end{eqnarray}\end{split}\]</div>
-<p>mediante la ley de control:</p>
-<div class="math notranslate nohighlight">
-\[ u =-\mathbf{Kx}\]</div>
-<p>Se puede demostrar que la ubicación de los polos a lazo cerrado que minimizan el funcional de costo anterior, son los polos estables del lugar simétrico de las raíces dado por la ecuación:</p>
-<div class="math notranslate nohighlight">
-\[1+\rho G_0(-s)G_0(s)=0\]</div>
-<p>donde <span class="math notranslate nohighlight">\(G_0(s)\)</span> es:</p>
-<div class="math notranslate nohighlight">
-\[G_0(s) = \frac{Z(s)}{U(s)}=\mathbf{C_1}(s\mathbf I -\mathbf A)^{-1}\mathbf B\]</div>
-<p>Por lo tanto el problema lo podemos resolver para todo <span class="math notranslate nohighlight">\(\rho\)</span> haciendo un lugar simétrico de las raíces de <span class="math notranslate nohighlight">\(G_0(-s)G_0(s)\)</span>. El lugar dará simétrico respecto del eje <span class="math notranslate nohighlight">\(j\omega\)</span> ya que los polos y ceros de <span class="math notranslate nohighlight">\(G_0(-s)G_0(s)\)</span> también estarán ubicados de forma simétrica.</p>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -674,10 +652,10 @@ z =  \mathbf{C_1x}\\
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="estimadores.html" title="siguiente página">
+        <a class="right-next" href="LSR.html" title="siguiente página">
             <div class="prevnext-info">
                 <p class="prevnext-label">siguiente</p>
-                <p class="prevnext-title">Diseño de estimadores</p>
+                <p class="prevnext-title">Lugar simétrico de las raíces</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
