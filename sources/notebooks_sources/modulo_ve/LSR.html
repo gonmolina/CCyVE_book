@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lugar simétrico de las raíces &#8212; Diseño y Ajuste de Sistemas de Control</title>
+    <title>Elección de la ubicación de los polos a lazo cerrado &#8212; Diseño y Ajuste de Sistemas de Control</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -389,7 +389,7 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Lugar simétrico de las raíces
+   Elección de la ubicación de los polos a lazo cerrado
   </a>
  </li>
  <li class="toctree-l1">
@@ -522,8 +522,18 @@ commentsRunWhenDOMLoaded(addUtterances);
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ejemplo-ley-de-control-con-lugar-simetrico-de-las-raices">
-   Ejemplo ley de control con lugar simétrico de las raíces
+  <a class="reference internal nav-link" href="#sistema-de-segundo-orden-dominante">
+   Sistema de segundo orden dominante
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lugar-simetrico-de-las-raices">
+   Lugar simétrico de las raíces
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplo-de-modos-para-la-ley-de-control">
+   Ejemplo de modos para la ley de control
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -563,8 +573,16 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="lugar-simetrico-de-las-raices">
-<h1>Lugar simétrico de las raíces<a class="headerlink" href="#lugar-simetrico-de-las-raices" title="Enlazar permanentemente con este título">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="eleccion-de-la-ubicacion-de-los-polos-a-lazo-cerrado">
+<h1>Elección de la ubicación de los polos a lazo cerrado<a class="headerlink" href="#eleccion-de-la-ubicacion-de-los-polos-a-lazo-cerrado" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="sistema-de-segundo-orden-dominante">
+<h2>Sistema de segundo orden dominante<a class="headerlink" href="#sistema-de-segundo-orden-dominante" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una forma de seleccionar la ubicación de los polos es hacer lo mismo que se hacía en control clásico, es decir buscar que el sistema sea parecido a un segundo orden dominante.</p>
+<p>Esto es perfectamente factible en control moderno. Sin embargo, tiene la desventaja que no sabemos para nada que sucederá con el esfuerzo de control <span class="math notranslate nohighlight">\(u\)</span>. Ubicando los polos de esta manera podemos obtener esfuerzos de control imposibles de realizar por nuestros actuadores, o que lleven a consumos de energías demasiado altos para nuestro sistema.</p>
+<p>Por esto, lo más recomendable es usar técnicas de control óptimo para seleccionar los polos del sistema a lazo cerrado.</p>
+</div>
+<div class="section" id="lugar-simetrico-de-las-raices">
+<h2>Lugar simétrico de las raíces<a class="headerlink" href="#lugar-simetrico-de-las-raices" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Una técnica de control óptimo ampliamente usado es el control <code class="docutils literal notranslate"><span class="pre">regulador</span> <span class="pre">cuadrático</span> <span class="pre">lineal</span> <span class="pre">(LQR)</span></code>. En este curso veremos una versión simplificada que se conoce como <strong>Lugar de las Raíces Simétrico</strong>. Esta versión simplificada consiste en resolver el problema de minimización del siguiente índice de costo:</p>
 <div class="math notranslate nohighlight">
 \[\mathcal J = \int_0^{\infty}\left[\rho z^2(t)+u^2(t)\right]dt\]</div>
@@ -584,8 +602,9 @@ z =  \mathbf{C_1x}\\
 <div class="math notranslate nohighlight">
 \[G_0(s) = \frac{Z(s)}{U(s)}=\mathbf{C_1}(s\mathbf I -\mathbf A)^{-1}\mathbf B\]</div>
 <p>Por lo tanto el problema lo podemos resolver para todo <span class="math notranslate nohighlight">\(\rho\)</span> haciendo un lugar simétrico de las raíces de <span class="math notranslate nohighlight">\(G_0(-s)G_0(s)\)</span>. El lugar dará simétrico respecto del eje <span class="math notranslate nohighlight">\(j\omega\)</span> ya que los polos y ceros de <span class="math notranslate nohighlight">\(G_0(-s)G_0(s)\)</span> también estarán ubicados de forma simétrica.</p>
-<div class="section" id="ejemplo-ley-de-control-con-lugar-simetrico-de-las-raices">
-<h2>Ejemplo ley de control con lugar simétrico de las raíces<a class="headerlink" href="#ejemplo-ley-de-control-con-lugar-simetrico-de-las-raices" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<div class="section" id="ejemplo-de-modos-para-la-ley-de-control">
+<h2>Ejemplo de modos para la ley de control<a class="headerlink" href="#ejemplo-de-modos-para-la-ley-de-control" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Dado el sistema con las siguientes ecuaciones de estado:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\dot{\mathbf{x}}(t) = \begin{bmatrix} -3 &amp; 2 \\ -1 &amp; 0 \end{bmatrix} \mathbf{x}(t) + \begin{bmatrix} 1 \\ 0 \end{bmatrix} u(t) \end{split}\]</div>
@@ -782,7 +801,7 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/LSR_26_0.png" src="../../../_images/LSR_26_0.png" />
+<img alt="../../../_images/LSR_27_0.png" src="../../../_images/LSR_27_0.png" />
 </div>
 </div>
 <p>Podemos ver en la figura, que se logran los objetivos seleccionados usando polos objetivos reales, uno lo podemos ibcar cerca de 5 y el otro queda cerca del cero, por lo que es esperable que no afecte demasiado el comportamiento.</p>
@@ -933,7 +952,7 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/LSR_41_0.png" src="../../../_images/LSR_41_0.png" />
+<img alt="../../../_images/LSR_42_0.png" src="../../../_images/LSR_42_0.png" />
 </div>
 </div>
 <p>Podemos ver, que el sistema al tener un cero nos arruinó lo que esperabamos del lazo segundo orden dominante.</p>

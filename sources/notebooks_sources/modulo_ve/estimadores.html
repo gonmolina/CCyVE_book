@@ -92,7 +92,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
     <link rel="next" title="Diseño para un motor de continua" href="ejemplo_A_ve_motor_cc.html" />
-    <link rel="prev" title="Lugar simétrico de las raíces" href="LSR.html" />
+    <link rel="prev" title="Elección de la ubicación de los polos a lazo cerrado" href="LSR.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -389,7 +389,7 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="LSR.html">
-   Lugar simétrico de las raíces
+   Elección de la ubicación de los polos a lazo cerrado
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -547,6 +547,16 @@ commentsRunWhenDOMLoaded(addUtterances);
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimador-completo-y-ley-de-control">
+   Estimador completo y ley de control
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimador-de-orden-reducido-y-ley-de-control">
+   Estimador de orden reducido y ley de control
+  </a>
  </li>
 </ul>
 
@@ -743,6 +753,57 @@ y &amp;\leftarrow&amp;\dot y - A_{aa}y-\mathbf B_{a}u\\
 </div>
 </div>
 </div>
+<div class="section" id="estimador-completo-y-ley-de-control">
+<h2>Estimador completo y ley de control<a class="headerlink" href="#estimador-completo-y-ley-de-control" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para obtener un compensador similar a los que teníamos en control clásico, debemos de alguna forma unir el estimador y la ley de control en un solo sistema. Para este sistema compensador, la entrada será la salida de la planta <span class="math notranslate nohighlight">\(y(t)\)</span> y la salida será la entrada de la planta <span class="math notranslate nohighlight">\(u(t)\)</span>. Por ahora consideremos que no tenemos la entrada referencia (o lo que es lo mismo que la referencia es nula).</p>
+<p>Recordemos la ecuación del estimador completo:</p>
+<div class="math notranslate nohighlight">
+\[\dot{ \hat{ \mathbf{x}}}(t)=\mathbf A\hat{\mathbf{x}}(t)+\mathbf B u(t)+\mathbf L(y(t)-\mathbf C \hat{\mathbf{x}}(t))\]</div>
+<p>y la ecuación de la ley de control es:</p>
+<div class="math notranslate nohighlight">
+\[u(t)=-\mathbf{Kx}(t).\]</div>
+<p>Reemplazando la ecuación de la ley de control en la del estimador:</p>
+<div class="math notranslate nohighlight">
+\[\dot{ \hat{ \mathbf{x}}}(t)=\mathbf A\hat{\mathbf{x}}(t)-\mathbf{BKx}(t)+\mathbf L(y(t)-\mathbf C \hat{\mathbf{x}}(t))\]</div>
+<p>Y reagrupando tenemos:</p>
+<div class="math notranslate nohighlight">
+\[\dot{ \hat{ \mathbf{x}}}(t)=(\mathbf A-\mathbf{BK-LC)\hat{x}}(t)+\mathbf L y(t)\]</div>
+<p>Entonces, tenemos que las ecuaciones de nuestro sistema «compensador» sería:</p>
+<div class="math notranslate nohighlight">
+\[\dot{ \hat{ \mathbf{x}}}(t)= \underbrace{(\mathbf A-\mathbf{BK-LC)}}_{\mathbf{A}_C} \hat{\mathbf x}(t)+\underbrace{\mathbf L }_{\mathbf B_C}y(t)\]</div>
+<div class="math notranslate nohighlight">
+\[u(t)=\underbrace{-\mathbf{K}}_{\mathbf C_C}\mathbf{x}(t) + \underbrace {\mathbf 0}_{\mathbf D} u(t)\]</div>
+<p>Estas ecuaciones descrieben a un sistema controlador donde se estiman los estados con un estamidor de orden completo y los polos de la planta se deciden con la ley de control. Más adelante se mostrará como se agregan las referencias a este sistema.</p>
+</div>
+<div class="section" id="estimador-de-orden-reducido-y-ley-de-control">
+<h2>Estimador de orden reducido y ley de control<a class="headerlink" href="#estimador-de-orden-reducido-y-ley-de-control" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Análogamente a lo hecho con el controlador de orden completo, tenmos que</p>
+<div class="math notranslate nohighlight">
+\[\mathbf {\dot {x}}_c(t) = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})(\mathbf{x}_c(t)+\mathbf Ly(t)) + (\mathbf{A}_{ba}-\mathbf L A_{aa})y(t) + (\mathbf B_b- \mathbf L B_a)u(t).\]</div>
+<p>Podemos ahora dividir la <span class="math notranslate nohighlight">\(\mathbf K\)</span> entre las partes que son mediciones y las que conocemos, entonces:</p>
+<div class="math notranslate nohighlight">
+\[ \mathbf K = [K_a \quad |\quad \mathbf K_b]\]</div>
+<p>La ecuación de salida la podemos del controlador la podemos escribir de la  siguiente manera entonces:</p>
+<div class="math notranslate nohighlight">
+\[u(t) = -K_a y(t) - \mathbf K _b \hat {\mathbf x}_B(t)= -K_a y(t) - \mathbf K _b \mathbf x_C(t) - \mathbf K _b \mathbf L y(t) =\underbrace{-\mathbf K _b}_{\mathbf C_r}\mathbf x_C(t) +\underbrace{(-K_a - \mathbf K _b \mathbf L)}_{\mathbf D_r} y(t)   \]</div>
+<p>Replanzandola en la ecuación del estimador anterior y reagrupando tenemos que:</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf x}_C = \underbrace{((\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})-(\mathbf B_b- \mathbf L B_a)\mathbf K_B )}_{\mathbf A_r}\mathbf x_C +\underbrace{[ (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})\mathbf L +  (\mathbf {A}_{ba}-\mathbf L\mathbf A_{aa}) - (\mathbf B_b- \mathbf L B_a) (K_a + \mathbf K _b \mathbf L) ]}_{\mathbf B_r} y(t)\]</div>
+<p>Examinando las ecuaciones anteriores, podemos definir las ecuaciones que describien este compensador en espacio de estados como:</p>
+<div class="math notranslate nohighlight">
+\[ \mathbf A_r = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})-(\mathbf B_b- \mathbf L B_a)\mathbf K_B \]</div>
+<div class="math notranslate nohighlight">
+\[ \mathbf B_r = \mathbf {A}_r \mathbf L +\mathbf A_{ba}-\mathbf L \mathbf A_{aa} - (\mathbf B_b- \mathbf L B_a) K_a\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf C_r = -\mathbf K_b\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf D_r = -K_a -\mathbf K_b \mathbf L\]</div>
+<p>Por lo tanto las ecuaciones del sistema compensador son:</p>
+<div class="math notranslate nohighlight">
+\[ \dot{\mathbf x}_C = \mathbf A_r \mathbf x_C + \mathbf B_r y(t)\]</div>
+<div class="math notranslate nohighlight">
+\[u(t) = \mathbf C_r \mathbf x_C  + \mathbf D_r y(t)\]</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -779,7 +840,7 @@ y &amp;\leftarrow&amp;\dot y - A_{aa}y-\mathbf B_{a}u\\
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">anterior</p>
-                <p class="prevnext-title">Lugar simétrico de las raíces</p>
+                <p class="prevnext-title">Elección de la ubicación de los polos a lazo cerrado</p>
             </div>
         </a>
     </div>
