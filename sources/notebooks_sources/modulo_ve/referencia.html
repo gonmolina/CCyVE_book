@@ -625,21 +625,23 @@ N_u\\ \end{bmatrix} =
 <h2>Inserción de referencia a un controlador con estimado en forma general<a class="headerlink" href="#insercion-de-referencia-a-un-controlador-con-estimado-en-forma-general" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Recordando la ecuación del estimador con la ley de control, resulta la ecuación:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\begin{split}
+\[\begin{split}
 \begin{align*}
-\dot{ \hat{ \mathbf{x}}}(t)&amp;= (\mathbf A-\mathbf{BK-LC}) \hat{\mathbf x}(t)+\mathbf Ly(t)\\\end{split}\\u(t)&amp;=-\mathbf{K}\mathbf{x}(t) +  \mathbf 0 u(t)
+\dot{ \hat{ \mathbf{x}}}(t)&amp;= (\mathbf A-\mathbf{BK-LC}) \hat{\mathbf x}(t)+\mathbf Ly(t)\\
+u(t)&amp;=-\mathbf{K}\mathbf{x}(t) +  \mathbf 0 u(t)
 \end{align*}
-\end{aligned}\end{align} \]</div>
+\end{split}\]</div>
 <p>Podemos ver que este sistema, que es un controlador, tiene un sola entrada, que es la salida (o medición) de nuestra planta a controlar. A este tipo de controlador, que solo tiene como objetivo mantener al sistema controlador en su punto de trabajo con un determinado comportamiento dinámico se lo conoce como <strong>regulador</strong>.</p>
 <p>Para darle la posibilidad al sistema controlado de ser un servosistema controlador por un <strong>servoregulador</strong>, es decir que tenga la capacidad de seguir referencias, es necesario  de alguna manera agregar al controlador la entrada referencia.</p>
 <p>Es importante destacar que el comportamiento dinámico del sistema controlador no debe cambiar. Es decir la matriz <span class="math notranslate nohighlight">\(\mathbf A\)</span> del sistema controlado (a lazo cerrado) debe ser la misma que antes de introducir la referencia.</p>
 <p>Por lo tanto, la forma general de introducir la referencia sin modificar las dinámicas obtenidas anteriormente es a la ecuación anterior agregarle el término de entrada a la referencia. Es decir:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\begin{split}
+\[\begin{split}
 \begin{align*}
-\dot{ \hat{ \mathbf{x}}}(t)&amp;= (\mathbf A-\mathbf{BK-LC}) \hat{\mathbf x}(t)+\mathbf Ly(t) + \mathbf M r(t)\\\end{split}\\u(t)&amp;=-\mathbf{K}\mathbf{x}(t) +  \mathbf 0 u(t)+  N r(t)
+\dot{ \hat{ \mathbf{x}}}(t)&amp;= (\mathbf A-\mathbf{BK-LC}) \hat{\mathbf x}(t)+\mathbf Ly(t) + \mathbf M r(t)\\
+u(t)&amp;=-\mathbf{K}\mathbf{x}(t) +  \mathbf 0 u(t)+  N r(t)
 \end{align*}
-\end{aligned}\end{align} \]</div>
+\end{split}\]</div>
 <p>La pregunta ahora es como elegir <span class="math notranslate nohighlight">\(\mathbf M\)</span> y <span class="math notranslate nohighlight">\(N\)</span> para que la inserción de referencias tenga una configuración correcta.</p>
 <p>En este curso presentaré 2 formas:</p>
 <ul class="simple">
@@ -672,8 +674,9 @@ N_u\\ \end{bmatrix} =
 <p>y</p>
 <div class="math notranslate nohighlight">
 \[N=0\]</div>
-<p>Entonces se tiene:
-$<span class="math notranslate nohighlight">\(\dot{ \hat{ \mathbf{x}}}(t)= (\mathbf A-\mathbf{BK-LC}) \hat{\mathbf x}(t)+\mathbf L (y(t) - \mathbf  r(t))\)</span>$</p>
+<p>Entonces se tiene:</p>
+<div class="math notranslate nohighlight">
+\[\dot{ \hat{ \mathbf{x}}}(t)= (\mathbf A-\mathbf{BK-LC}) \hat{\mathbf x}(t)+\mathbf L (y(t) - \mathbf  r(t))\]</div>
 <p>y</p>
 <div class="math notranslate nohighlight">
 \[\dot{ \mathbf{x}}(t)= \mathbf A\mathbf x(t) +\mathbf{B} (-\mathbf K\hat{\mathbf{x}}(t)\]</div>
@@ -705,7 +708,7 @@ u(t) &amp;= \mathbf C_r \mathbf x_C  + \mathbf D_r y(t) + N_r r(t)
 \end{align*}\end{split}\]</div>
 <p>Por lo tanto la ecuación de la entrada resulta:</p>
 <div class="math notranslate nohighlight">
-\[u(t) =-\mathbf K _b\mathbf x_C(t) +(-K_a - \mathbf K _b \mathbf L) y(t) + N_rr(t)  \]</div>
+\[u(t) =-\mathbf K _b\mathbf x_C(t) +(-K_a - \mathbf K _b \mathbf L) y(t) + N_rr(t) \]</div>
 <p>De forma análoga a la anterior tenemos que el error estimación de <span class="math notranslate nohighlight">\(\mathbf x_b(t) - \hat {\mathbf x}_b(t)\)</span>, no debe depender de <span class="math notranslate nohighlight">\(r(t)\)</span>. Sin embargo, el trabajo algebraico para obtener explicitamente cuando debe valor <span class="math notranslate nohighlight">\(\mathbf M\)</span> es bastante tedioso. Por lo tanto aquí se presenta el resultado:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf M = (\mathbf B_b - \mathbf L \mathbf B_a)N\]</div>
