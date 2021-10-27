@@ -516,6 +516,34 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#insercion-de-referencia-a-un-controlador-con-estimado-en-forma-general">
+   Inserción de referencia a un controlador con estimado en forma general
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimador-completo-autonomo">
+   Estimador completo autónomo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimador-por-error-de-seguimiento">
+   Estimador por error de seguimiento
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimador-reducido-autonomo">
+   Estimador reducido autónomo
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -526,17 +554,18 @@ commentsRunWhenDOMLoaded(addUtterances);
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="insercion-de-referencias">
 <h1>Inserción de referencias<a class="headerlink" href="#insercion-de-referencias" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Para introducir el seguimiento de referencias, siguiendo la idea de control clásico uno podría hacer <span class="math notranslate nohighlight">\(u=-\mathbf K \mathbf x + r\)</span>, siendo <span class="math notranslate nohighlight">\(r\)</span> la referencia. Sin embargo esto en general llevaría a tener errores de estados estacionarios muy grandes.</p>
+<p>Comenzaremos nuestro estudio agreando referencias a un sistema controlado mediante la ley de control <span class="math notranslate nohighlight">\(u(t)=\mathbf{Kx}(t)\)</span>.<br />
+Siguiendo la idea de control clásico uno podría hacer <span class="math notranslate nohighlight">\(u=-\mathbf K \mathbf x + r\)</span>, siendo <span class="math notranslate nohighlight">\(r\)</span> la referencia. Sin embargo esto en general llevaría a tener errores de estados estacionarios muy grandes.</p>
 <p>La forma correcta sería tratar de calcular los estados y la entrada en estado estacionario(<span class="math notranslate nohighlight">\(t \rightarrow \infty\)</span>). Si entramos con el valor de estado estacionario de <span class="math notranslate nohighlight">\(u\)</span> y hacemos que para <span class="math notranslate nohighlight">\(t \rightarrow \infty\)</span> la realimentación sea 0, entonces nos aseguramos que el sistema tendrá error nulo. Matemáticamente esto lo podemos lograr haciendo que:</p>
 <div class="math notranslate nohighlight">
 \[u=u_{ss}-\mathbf K(\mathbf x - \mathbf{x_ss})\]</div>
 <p>Para resolver cuanto vales <span class="math notranslate nohighlight">\(u_ss\)</span> y <span class="math notranslate nohighlight">\(\mathbf{x_ss}\)</span> debemos expresar las ecuaciones de estado con las condiciones de estado estacionario, es decir:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{eqnarray}
+\begin{align*}
 0&amp;=&amp;\mathbf{Ax_{ss}}+\mathbf{B}u_{ss} \\
 yss&amp;=&amp;\mathbf{Cx_{ss}}+\mathbf{D}u_{ss}
-\end{eqnarray}
+\end{align*}
 \end{split}\]</div>
 <p>Entonces se quiere resolver los valores para los cuales <span class="math notranslate nohighlight">\(y_{ss }=r_{ss}\)</span> para cualquier <span class="math notranslate nohighlight">\(y_ss\)</span>. Para hacer esto hacemos que <span class="math notranslate nohighlight">\(\mathbf{x_{ss}}=\mathbf{N_x}r_{ss}\)</span> y <span class="math notranslate nohighlight">\(u_{ss}=N_ur_{ss}\)</span>. Haciendo esto tenemos el siguiente sistema de ecuaciones:</p>
 <div class="math notranslate nohighlight">
@@ -591,6 +620,96 @@ N_u\\ \end{bmatrix} =
     <span class="k">return</span> <span class="n">Nu</span><span class="o">+</span><span class="n">K</span><span class="nd">@Nx</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="insercion-de-referencia-a-un-controlador-con-estimado-en-forma-general">
+<h2>Inserción de referencia a un controlador con estimado en forma general<a class="headerlink" href="#insercion-de-referencia-a-un-controlador-con-estimado-en-forma-general" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Recordando la ecuación del estimador con la ley de control, resulta la ecuación:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\begin{align*}
+\dot{ \hat{ \mathbf{x}}}(t)&amp;= (\mathbf A-\mathbf{BK-LC}) \hat{\mathbf x}(t)+\mathbf Ly(t)\\\end{split}\\u(t)&amp;=-\mathbf{K}\mathbf{x}(t) +  \mathbf 0 u(t)
+\end{align*}
+\end{aligned}\end{align} \]</div>
+<p>Podemos ver que este sistema, que es un controlador, tiene un sola entrada, que es la salida (o medición) de nuestra planta a controlar. A este tipo de controlador, que solo tiene como objetivo mantener al sistema controlador en su punto de trabajo con un determinado comportamiento dinámico se lo conoce como <strong>regulador</strong>.</p>
+<p>Para darle la posibilidad al sistema controlado de ser un servosistema controlador por un <strong>servoregulador</strong>, es decir que tenga la capacidad de seguir referencias, es necesario  de alguna manera agregar al controlador la entrada referencia.</p>
+<p>Es importante destacar que el comportamiento dinámico del sistema controlador no debe cambiar. Es decir la matriz <span class="math notranslate nohighlight">\(\mathbf A\)</span> del sistema controlado (a lazo cerrado) debe ser la misma que antes de introducir la referencia.</p>
+<p>Por lo tanto, la forma general de introducir la referencia sin modificar las dinámicas obtenidas anteriormente es a la ecuación anterior agregarle el término de entrada a la referencia. Es decir:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\begin{align*}
+\dot{ \hat{ \mathbf{x}}}(t)&amp;= (\mathbf A-\mathbf{BK-LC}) \hat{\mathbf x}(t)+\mathbf Ly(t) + \mathbf M r(t)\\\end{split}\\u(t)&amp;=-\mathbf{K}\mathbf{x}(t) +  \mathbf 0 u(t)+  N r(t)
+\end{align*}
+\end{aligned}\end{align} \]</div>
+<p>La pregunta ahora es como elegir <span class="math notranslate nohighlight">\(\mathbf M\)</span> y <span class="math notranslate nohighlight">\(N\)</span> para que la inserción de referencias tenga una configuración correcta.</p>
+<p>En este curso presentaré 2 formas:</p>
+<ul class="simple">
+<li><p>Inserción de referencias para estimador autónomo: para esto se elige <span class="math notranslate nohighlight">\(\mathbf M\)</span> y <span class="math notranslate nohighlight">\(N\)</span> de forma tal que la dinámica del error de estimación no dependa de ls referencias. Es decir, el error de la estimación no se verá afectado cuando se cambie la referencia.</p></li>
+<li><p>Inserción de referencias mediante error de seguimiento: esto transforma nuevamente a nuestro sistema en uno de una sola entrada <span class="math notranslate nohighlight">\(y(t)-r(t)\)</span>. Este sistema es más parecido al controlador/compensador clásico ya que aparece la resta <span class="math notranslate nohighlight">\(y(t)-r(t)\)</span> a la entrada. Esta forma de introducir la referencia en general tiene una peor performance que cuando se usa la anterior. Sin embargo es util cuando se mide la diferencia entre los que se quiere y lo que se tiene. Es decir, el sensor nos da</p></li>
+<li><p>Inserción de referencias mediante error de seguimiento: esto transforma nuevamente a nuestro sistema en uno de una sola entrada <span class="math notranslate nohighlight">\(y(t)-r(t)\)</span>. Este sistema es más parecido al controlador/compensador clásico ya que aparece la resta <span class="math notranslate nohighlight">\(y(t)-r(t)\)</span> a la entrada. Esta forma de introducir la referencia en general tiene una peor performance que cuando se usa la anterior. Sin embargo es util cuando se mide la diferencia entre los que se quiere y lo que se tiene. Es decir, el sensor nos da directamente <span class="math notranslate nohighlight">\(y(t)-r(t)\)</span>. En cualquier otro caso es preferible la inserción de referencia para lograr el estimador autonomo.</p></li>
+</ul>
+</div>
+<div class="section" id="estimador-completo-autonomo">
+<h2>Estimador completo autónomo<a class="headerlink" href="#estimador-completo-autonomo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Recordando la ecuación del estimador completo tenemos que:</p>
+<div class="math notranslate nohighlight">
+\[\dot{ \hat{ \mathbf{x}}}(t)= (\mathbf A-\mathbf{BK-LC}) \hat{\mathbf x}(t)+\mathbf Ly(t) + \mathbf M r(t)\]</div>
+<p>y</p>
+<div class="math notranslate nohighlight">
+\[\dot{ \mathbf{x}}(t)= \mathbf A\mathbf x(t) +\mathbf{B} (-\mathbf K\hat{\mathbf{x}}(t)+ N r(t)) \]</div>
+<p>Como queremos que el error de estimación <span class="math notranslate nohighlight">\(\dot{ \mathbf{x}}(t) -  \dot{ \hat{ \mathbf{x}}}(t)\)</span>  no dependa de <span class="math notranslate nohighlight">\(r(t)\)</span>, entonces tenemos entonces cuando la resta de las dos ecuaciones anteriores se deben anular los términos dependientes de <span class="math notranslate nohighlight">\(r(t)\)</span>. Entonces, por inspección notamos que:</p>
+<div class="math notranslate nohighlight">
+\[ \mathbf M = \mathbf{B}  N \]</div>
+<p>Se puede demostrar que para que el error en estado estacionario sea cero (de forma «no robusta»), <span class="math notranslate nohighlight">\(N=\bar N\)</span> sacada anteriormente.</p>
+<p>Entonces:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf M = \mathbf{B}  \bar N\]</div>
+</div>
+<div class="section" id="estimador-por-error-de-seguimiento">
+<h2>Estimador por error de seguimiento<a class="headerlink" href="#estimador-por-error-de-seguimiento" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se tiene que elegir <span class="math notranslate nohighlight">\(\mathbf M\)</span> y <span class="math notranslate nohighlight">\(N\)</span> talque se la entradas queden de la forma <span class="math notranslate nohighlight">\(y(t)-r(t)\)</span>. Inspeccionado las ecuaciones del controlador podemos notar que si elegimos:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf M = -\mathbf L\]</div>
+<p>y</p>
+<div class="math notranslate nohighlight">
+\[N=0\]</div>
+<p>Entonces se tiene:
+$<span class="math notranslate nohighlight">\(\dot{ \hat{ \mathbf{x}}}(t)= (\mathbf A-\mathbf{BK-LC}) \hat{\mathbf x}(t)+\mathbf L (y(t) - \mathbf  r(t))\)</span>$</p>
+<p>y</p>
+<div class="math notranslate nohighlight">
+\[\dot{ \mathbf{x}}(t)= \mathbf A\mathbf x(t) +\mathbf{B} (-\mathbf K\hat{\mathbf{x}}(t)\]</div>
+<p>Por lo que ahora nuestro sistema controlador solo tiene una entrada igual a <span class="math notranslate nohighlight">\(y(t)-r(t)\)</span>.</p>
+</div>
+<div class="section" id="estimador-reducido-autonomo">
+<h2>Estimador reducido autónomo<a class="headerlink" href="#estimador-reducido-autonomo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las ecuaciones para el sistema compensador con estimador reducido resutlaron:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+ \dot{\mathbf x}_C &amp;= \mathbf A_r \mathbf x_C + \mathbf B_r y(t)\\
+u(t) &amp;= \mathbf C_r \mathbf x_C  + \mathbf D_r y(t)
+\end{align*}\end{split}\]</div>
+<p>Donde las matrices que definen el espacio de estado son:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+ \mathbf A_r &amp;= (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})-(\mathbf B_b- \mathbf L B_a)\mathbf K_B \\
+\mathbf B_r &amp;= \mathbf {A}_r \mathbf L +\mathbf A_{ba}-\mathbf L \mathbf A_{aa} - (\mathbf B_b- \mathbf L B_a) K_a\\
+\mathbf C_r &amp;= -\mathbf K_b\\
+\mathbf D_r &amp;= -K_a -\mathbf K_b \mathbf L
+\end{align*}
+\end{split}\]</div>
+<p>Si ahora le agregamos la referencia tenemos:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+ \dot{\mathbf x}_C &amp;= \mathbf A_r \mathbf x_C + \mathbf B_r y(t) + \mathbf M_r r(t)\\
+u(t) &amp;= \mathbf C_r \mathbf x_C  + \mathbf D_r y(t) + N_r r(t)
+\end{align*}\end{split}\]</div>
+<p>Por lo tanto la ecuación de la entrada resulta:</p>
+<div class="math notranslate nohighlight">
+\[u(t) =-\mathbf K _b\mathbf x_C(t) +(-K_a - \mathbf K _b \mathbf L) y(t) + N_rr(t)  \]</div>
+<p>De forma análoga a la anterior tenemos que el error estimación de <span class="math notranslate nohighlight">\(\mathbf x_b(t) - \hat {\mathbf x}_b(t)\)</span>, no debe depender de <span class="math notranslate nohighlight">\(r(t)\)</span>. Sin embargo, el trabajo algebraico para obtener explicitamente cuando debe valor <span class="math notranslate nohighlight">\(\mathbf M\)</span> es bastante tedioso. Por lo tanto aquí se presenta el resultado:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf M = (\mathbf B_b - \mathbf L \mathbf B_a)N\]</div>
+<p>El valor de <span class="math notranslate nohighlight">\(N\)</span> para que el sistema tenga error cero en estado estacionario (de forma no robusta), debe ser <span class="math notranslate nohighlight">\(N=\bar N\)</span>.</p>
 </div>
 </div>
 

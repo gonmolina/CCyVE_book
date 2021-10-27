@@ -644,13 +644,13 @@ x_a \\
 <p>La primer ecuación la podemos comparar con la ecuación de la dinámica del estimador y la segunda ecuación la podemos comparar con la ecuación de salida, ambas del trabajo realizado para el estimador completo.</p>
 <p>Haciendo esto tenemos que:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray}
-\mathbf{x} &amp;\leftarrow&amp;\mathbf x_b\\
-\mathbf{A} &amp;\leftarrow&amp;\mathbf A_{bb}\\
-\mathbf{B}u &amp;\leftarrow&amp;\mathbf A_{ba}y+\mathbf B_{b}u\\
-y &amp;\leftarrow&amp;\dot y - A_{aa}y-\mathbf B_{a}u\\
-\mathbf{C} &amp;\leftarrow&amp;\mathbf A_{ab}\\
-\end{eqnarray}\end{split}\]</div>
+\[\begin{split}\begin{align*}
+\mathbf{x} &amp;\leftarrow \mathbf x_b\\
+\mathbf{A} &amp;\leftarrow \mathbf A_{bb}\\
+\mathbf{B}u &amp;\leftarrow \mathbf A_{ba}y+\mathbf B_{b}u\\
+y &amp;\leftarrow \dot y - A_{aa}y-\mathbf B_{a}u\\
+\mathbf{C} &amp;\leftarrow \mathbf A_{ab}\\
+\end{align*}\end{split}\]</div>
 <p>Sustituyendo en las ecuaciones del estimador completo, podemos obtener que las variables estimadas del estimador reducido tienen la siguiente dinámica:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf {\dot {\hat x}}_b = \mathbf {A}_{bb}\mathbf{\hat{x}}_b + \underbrace{\mathbf{A}_{ba} y + \mathbf B_bu}_{\text{entradas}} + \mathbf L ( \underbrace{\dot y -A_{aa}y-B_a u}_{\text{mediciones}}-\mathbf A_{ab}\mathbf{\hat{x}_b})\]</div>
@@ -678,7 +678,7 @@ y &amp;\leftarrow&amp;\dot y - A_{aa}y-\mathbf B_{a}u\\
 \[\det\left[s\mathbf I -(\mathbf{A}_{bb}-\mathbf {LA}_{ab}\right)]=0\]</div>
 <p>El problema que tiene el estimador es que depende de la derivada de <span class="math notranslate nohighlight">\(y\)</span>: uno mide <span class="math notranslate nohighlight">\(y\)</span> y a partir de esta variable resuelve <span class="math notranslate nohighlight">\(\dot y\)</span>, lo cual implica amplificar cualquier ruido presente en la medición:</p>
 <div class="math notranslate nohighlight">
-\[\mathbf {\dot {\hat x}}_b = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})\mathbf{\hat{x}}_b + (\mathbf{A}_{ba}-\mathbf L A_{aa})y + (\mathbf B_b- \mathbf L B_a) +\mathbf L \dot y \]</div>
+\[\mathbf {\dot {\hat x}}_b = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})\mathbf{\hat{x}}_b + (\mathbf{A}_{ba}-\mathbf L A_{aa})y + (\mathbf B_b- \mathbf L B_a)u +\mathbf L \dot y \]</div>
 <p>Para poder obtener una ecuación del estimador sin la derivada de la medición, lo que se puede hacer es redefinir la variable de estado como:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf x_c \overset{\Delta}{=}\mathbf{\hat{x}_b}-\mathbf Ly\]</div>
@@ -773,7 +773,7 @@ y &amp;\leftarrow&amp;\dot y - A_{aa}y-\mathbf B_{a}u\\
 \[\dot{ \hat{ \mathbf{x}}}(t)= \underbrace{(\mathbf A-\mathbf{BK-LC)}}_{\mathbf{A}_C} \hat{\mathbf x}(t)+\underbrace{\mathbf L }_{\mathbf B_C}y(t)\]</div>
 <div class="math notranslate nohighlight">
 \[u(t)=\underbrace{-\mathbf{K}}_{\mathbf C_C}\mathbf{x}(t) + \underbrace {\mathbf 0}_{\mathbf D} u(t)\]</div>
-<p>Estas ecuaciones descrieben a un sistema controlador donde se estiman los estados con un estamidor de orden completo y los polos de la planta se deciden con la ley de control. Más adelante se mostrará como se agregan las referencias a este sistema.</p>
+<p>Estas ecuaciones describen a un sistema controlador donde se estiman los estados con un estimador de orden completo y los polos de la planta se deciden con la ley de control. Más adelante se mostrará como se agregan las referencias a este sistema.</p>
 </div>
 <div class="section" id="estimador-de-orden-reducido-y-ley-de-control">
 <h2>Estimador de orden reducido y ley de control<a class="headerlink" href="#estimador-de-orden-reducido-y-ley-de-control" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -786,10 +786,10 @@ y &amp;\leftarrow&amp;\dot y - A_{aa}y-\mathbf B_{a}u\\
 <p>La ecuación de salida la podemos del controlador la podemos escribir de la  siguiente manera entonces:</p>
 <div class="math notranslate nohighlight">
 \[u(t) = -K_a y(t) - \mathbf K _b \hat {\mathbf x}_B(t)= -K_a y(t) - \mathbf K _b \mathbf x_C(t) - \mathbf K _b \mathbf L y(t) =\underbrace{-\mathbf K _b}_{\mathbf C_r}\mathbf x_C(t) +\underbrace{(-K_a - \mathbf K _b \mathbf L)}_{\mathbf D_r} y(t)   \]</div>
-<p>Replanzandola en la ecuación del estimador anterior y reagrupando tenemos que:</p>
+<p>Reemplanzando en la ecuación del estimador anterior y reagrupando tenemos que:</p>
 <div class="math notranslate nohighlight">
 \[\dot{\mathbf x}_C = \underbrace{((\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})-(\mathbf B_b- \mathbf L B_a)\mathbf K_B )}_{\mathbf A_r}\mathbf x_C +\underbrace{[ (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})\mathbf L +  (\mathbf {A}_{ba}-\mathbf L\mathbf A_{aa}) - (\mathbf B_b- \mathbf L B_a) (K_a + \mathbf K _b \mathbf L) ]}_{\mathbf B_r} y(t)\]</div>
-<p>Examinando las ecuaciones anteriores, podemos definir las ecuaciones que describien este compensador en espacio de estados como:</p>
+<p>Examinando las ecuaciones anteriores, podemos definir las ecuaciones que describen este compensador en espacio de estados como:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf A_r = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})-(\mathbf B_b- \mathbf L B_a)\mathbf K_B \]</div>
 <div class="math notranslate nohighlight">
