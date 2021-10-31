@@ -900,10 +900,10 @@ commentsRunWhenDOMLoaded(addUtterances);
         [  1.,   0.,   0.],
         [  0.,   1.,   0.]]), array([[1.],
         [0.],
-        [0.]]), array([[1.06985128e-17, 6.30808537e-17, 1.00000000e+00]]), array([[0.]])),
- array([[-1.00000000e+00,  2.57369883e-17,  4.88498131e-16],
-        [ 7.23865412e-17,  1.00000000e-01, -5.71764858e-17],
-        [ 1.06985128e-17, -6.30808537e-18, -1.00000000e-01]]))
+        [0.]]), array([[-6.25762068e-18, -6.30808537e-17,  1.00000000e+00]]), array([[0.]])),
+ array([[-1.00000000e+00,  6.86319688e-17,  2.44249065e-16],
+        [ 3.55271368e-17,  1.00000000e-01,  9.43689571e-18],
+        [-6.25762068e-18,  6.30808537e-18, -1.00000000e-01]]))
 </pre></div>
 </div>
 </div>
@@ -921,9 +921,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         [ -6.,   0.,   0.]]), array([[0.],
         [0.],
         [1.]]), array([[1., 0., 0.]]), array([[0.]])),
- array([[ 0.00000000e+00, -6.21724894e-18, -1.00000000e-01],
-        [-0.00000000e+00,  1.00000000e-01, -6.00000000e-01],
-        [-1.00000000e+00,  6.00000000e-01, -1.10000000e+00]]))
+ array([[ 0.0000000e+00, -4.4408921e-18, -1.0000000e-01],
+        [-0.0000000e+00,  1.0000000e-01, -6.0000000e-01],
+        [-1.0000000e+00,  6.0000000e-01, -1.1000000e+00]]))
 </pre></div>
 </div>
 </div>
@@ -937,9 +937,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-3.00000000e+00, -1.85149980e-14,  3.91285695e-15],
-       [ 3.44572809e-14, -2.00000000e+00, -1.04740522e-14],
-       [ 9.90337285e-15,  7.69364873e-15, -1.00000000e+00]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-3.00000000e+00, -1.35377372e-14,  2.02533447e-15],
+       [ 2.83137424e-14, -2.00000000e+00, -5.23993893e-15],
+       [ 8.83000508e-15,  5.63654650e-15, -1.00000000e+00]])
 </pre></div>
 </div>
 </div>
@@ -1119,17 +1119,17 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_6362</span><span class="o">/</span><span class="mf">4150826842.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4738</span><span class="o">/</span><span class="mf">4150826842.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys_c</span><span class="p">,</span> <span class="s1">&#39;observable&#39;</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/control/canonical.py</span> in <span class="ni">canonical_form</span><span class="nt">(xsys, form)</span>
+<span class="nn">/usr/share/miniconda/lib/python3.8/site-packages/control/canonical.py</span> in <span class="ni">canonical_form</span><span class="nt">(xsys, form)</span>
 <span class="g g-Whitespace">     </span><span class="mi">43</span>         <span class="k">return</span> <span class="n">reachable_form</span><span class="p">(</span><span class="n">xsys</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="k">elif</span> <span class="n">form</span> <span class="o">==</span> <span class="s1">&#39;observable&#39;</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">45</span>         <span class="k">return</span> <span class="n">observable_form</span><span class="p">(</span><span class="n">xsys</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="k">elif</span> <span class="n">form</span> <span class="o">==</span> <span class="s1">&#39;modal&#39;</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">47</span>         <span class="k">return</span> <span class="n">modal_form</span><span class="p">(</span><span class="n">xsys</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/control/canonical.py</span> in <span class="ni">observable_form</span><span class="nt">(xsys)</span>
+<span class="nn">/usr/share/miniconda/lib/python3.8/site-packages/control/canonical.py</span> in <span class="ni">observable_form</span><span class="nt">(xsys)</span>
 <span class="g g-Whitespace">    </span><span class="mi">147</span> 
 <span class="g g-Whitespace">    </span><span class="mi">148</span>     <span class="k">if</span> <span class="n">matrix_rank</span><span class="p">(</span><span class="n">Tzx</span><span class="p">)</span> <span class="o">!=</span> <span class="n">xsys</span><span class="o">.</span><span class="n">nstates</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">149</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Transformation matrix singular to working precision.&quot;</span><span class="p">)</span>
@@ -1198,17 +1198,17 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_6362</span><span class="o">/</span><span class="mf">2099819848.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4738</span><span class="o">/</span><span class="mf">2099819848.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">canonical_form</span><span class="p">(</span><span class="n">sys_o</span><span class="p">,</span> <span class="s1">&#39;reachable&#39;</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/control/canonical.py</span> in <span class="ni">canonical_form</span><span class="nt">(xsys, form)</span>
+<span class="nn">/usr/share/miniconda/lib/python3.8/site-packages/control/canonical.py</span> in <span class="ni">canonical_form</span><span class="nt">(xsys, form)</span>
 <span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="c1"># Call the appropriate tranformation function</span>
 <span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="k">if</span> <span class="n">form</span> <span class="o">==</span> <span class="s1">&#39;reachable&#39;</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">43</span>         <span class="k">return</span> <span class="n">reachable_form</span><span class="p">(</span><span class="n">xsys</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="k">elif</span> <span class="n">form</span> <span class="o">==</span> <span class="s1">&#39;observable&#39;</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">45</span>         <span class="k">return</span> <span class="n">observable_form</span><span class="p">(</span><span class="n">xsys</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/control/canonical.py</span> in <span class="ni">reachable_form</span><span class="nt">(xsys)</span>
+<span class="nn">/usr/share/miniconda/lib/python3.8/site-packages/control/canonical.py</span> in <span class="ni">reachable_form</span><span class="nt">(xsys)</span>
 <span class="g g-Whitespace">     </span><span class="mi">90</span> 
 <span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="k">if</span> <span class="n">matrix_rank</span><span class="p">(</span><span class="n">Wrx</span><span class="p">)</span> <span class="o">!=</span> <span class="n">xsys</span><span class="o">.</span><span class="n">nstates</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">92</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;System not controllable to working precision.&quot;</span><span class="p">)</span>
@@ -1266,8 +1266,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 \[\begin{split}
 \left(
 \begin{array}{rllrll|rll}
--2\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;4.&amp;\hspace{-1em}36&amp;\hspace{-1em}\cdot10^{-17}&amp;-1.&amp;\hspace{-1em}41&amp;\hspace{-1em}\phantom{\cdot}\\
--6.&amp;\hspace{-1em}33&amp;\hspace{-1em}\cdot10^{-17}&amp;-1\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;-0\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}\\
+-2\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;9.&amp;\hspace{-1em}05&amp;\hspace{-1em}\cdot10^{-17}&amp;-1.&amp;\hspace{-1em}41&amp;\hspace{-1em}\phantom{\cdot}\\
+-8.&amp;\hspace{-1em}95&amp;\hspace{-1em}\cdot10^{-17}&amp;-1\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;-0\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}\\
 \hline
 -0.&amp;\hspace{-1em}707&amp;\hspace{-1em}\phantom{\cdot}&amp;-0.&amp;\hspace{-1em}447&amp;\hspace{-1em}\phantom{\cdot}&amp;0\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}\\
 \end{array}\right)
