@@ -1,45 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html lang="es">
+
+<html lang="es" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Efecto de los polos adicionales y de los ceros &#8212; Diseño y Ajuste de Sistemas de Control</title>
-    
-  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
     <script src="../../../../_static/jquery.js"></script>
     <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../../_static/doctools.js"></script>
-    <script src="../../../../_static/togglebutton.js"></script>
     <script src="../../../../_static/clipboard.min.js"></script>
     <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -75,477 +89,468 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script src="../../../../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sources/notebooks_sources/modulo2/polos y ceros adicionales/Efecto Polos y Ceros Adicionales';</script>
     <link rel="canonical" href="https://gonmolina.github.io/CCyVE_book/sources/notebooks_sources/modulo2/polos y ceros adicionales/Efecto Polos y Ceros Adicionales.html" />
     <link rel="index" title="Índice" href="../../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../../search.html" />
     <link rel="next" title="Características de la realimentación" href="../../modulo3/realimentacion/carateristicas%20de%20la%20realimentacion.html" />
     <link rel="prev" title="Respuesta temporal de sistemas dinámicos" href="../respuesta%20temporal/Respuesta%20Temporal.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../../../index.html">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../ccyve_sources/intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../../../_static/sala_de_control.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Diseño y Ajuste de Sistemas de Control</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../../ccyve_sources/intro.html">
-   Material de la materia Control Clásico y por Variables de Estados 2021
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Introducción a Python
- </span>
-</p>
+    
+    
+    <img src="../../../../_static/sala_de_control.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/sala_de_control.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../ccyve_sources/intro.html">
+                    Material de la materia Control Clásico y por Variables de Estados 2021
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../gu%C3%ADa_instalaci%C3%B3n/guia_de_instalacion.html">
-   Guía de instalación de las herramientas computacionales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro_python/Introducci%C3%B3n%20a%20los%20notebooks%20de%20Jupyter.html">
-   Introducción a los cuadernos de Jupyter
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro_python/Extra_Python.html">
-   Introducción a Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro_python/Intro-Matplotlib.html">
-   Figuras en Python - MATPLOTLIB
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro_python/intro_sympy.html">
-   Introducción a SymPy
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../gu%C3%ADa_instalaci%C3%B3n/guia_de_instalacion.html">Guía de instalación de las herramientas computacionales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_python/Introducci%C3%B3n%20a%20los%20notebooks%20de%20Jupyter.html">Introducción a los cuadernos de Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_python/Extra_Python.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_python/Intro-Matplotlib.html">Figuras en Python - MATPLOTLIB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_python/intro_sympy.html">Introducción a SymPy</a></li>
 </ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Señales, sistemas y modelos
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Señales, sistemas y modelos</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo1/intro_sys_sen/intro_sis_y_sen.html">
-   Definiciones de Sistemas y Señales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo1/laplace/transformada_laplace_python_opcional.html">
-   Transformada de Laplace
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo1/laplace/funcion_transferencia.html">
-   Función transferencia
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo1/diagrama_bloques/diagrama_de_bloques.html">
-   Diagramas de bloques
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modulo1/espacio_estado/espacio_de_estados.html">
-   Representación de sistemas dinámicos en espacio de estados
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modulo1/espacio_estado/modelado_ss.html">
-     Modelado en espacio de estados
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo1/linealizacion/linealizacion.html">
-   Linealización de sistemas no-lineales
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modulo1/ejemplos_sistemas/ejemplos_sistemas.html">
-   Ejemplos de modelos de sistemas
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modulo1/ejemplos_sistemas/resorte_no_lineal.html">
-     Sistema masa resorte amortiguador
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modulo1/ejemplos_sistemas/CineticaPuntual.html">
-     Ecuaciones de Cinética Puntual
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modulo1/ejemplos_sistemas/Nonlinear%20CSTR.html">
-     Sistema CSTR
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modulo1/ejemplos_sistemas/Ejemplo_Presa_Depredador.html">
-     Sistema presa depredador (Lotka-Volterra)
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo1/intro_sys_sen/intro_sis_y_sen.html">Definiciones de Sistemas y Señales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo1/laplace/transformada_laplace_python_opcional.html">Transformada de Laplace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo1/laplace/funcion_transferencia.html">Función transferencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo1/diagrama_bloques/diagrama_de_bloques.html">Diagramas de bloques</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modulo1/espacio_estado/espacio_de_estados.html">Representación de sistemas dinámicos en espacio de estados</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo1/espacio_estado/modelado_ss.html">Modelado en espacio de estados</a></li>
 </ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Análisis de la respuesta temporal
- </span>
-</p>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo1/linealizacion/linealizacion.html">Linealización de sistemas no-lineales</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modulo1/ejemplos_sistemas/ejemplos_sistemas.html">Ejemplos de modelos de sistemas</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo1/ejemplos_sistemas/resorte_no_lineal.html">Sistema masa resorte amortiguador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo1/ejemplos_sistemas/CineticaPuntual.html">Ecuaciones de Cinética Puntual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo1/ejemplos_sistemas/Nonlinear%20CSTR.html">Sistema CSTR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo1/ejemplos_sistemas/Ejemplo_Presa_Depredador.html">Sistema presa depredador (Lotka-Volterra)</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis de la respuesta temporal</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../estabilidad/estabilidad.html">
-   Estabilidad
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../respuesta%20temporal/Respuesta%20Temporal.html">
-   Respuesta temporal de sistemas dinámicos
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Efecto de los polos adicionales y de los ceros
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../estabilidad/estabilidad.html">Estabilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../respuesta%20temporal/Respuesta%20Temporal.html">Respuesta temporal de sistemas dinámicos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Efecto de los polos adicionales y de los ceros</a></li>
 </ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Análisis de estado estacionario
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis de estado estacionario</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo3/realimentacion/carateristicas%20de%20la%20realimentacion.html">
-   Características de la realimentación
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo3/sensibilidad/Sensibilidad.html">
-   Sensibilidad
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo3/errores/Errores.html">
-   Errores
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo3/realimentacion/carateristicas%20de%20la%20realimentacion.html">Características de la realimentación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo3/sensibilidad/Sensibilidad.html">Sensibilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo3/errores/Errores.html">Errores</a></li>
 </ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Lugar de las raíces
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lugar de las raíces</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo4/lugar%20de%20las%20raices.html">
-   Lugar de las raíces
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo4/Pasos%20para%20el%20trazado.html">
-   Pasos para trazar el lugar geométrico de las raíces
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo4/Lugar%20de%20la%20raices%20con%20Python.html">
-   Lugar de las raíces usando Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo4/lugar%20de%20las%20raices.html">Lugar de las raíces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo4/Pasos%20para%20el%20trazado.html">Pasos para trazar el lugar geométrico de las raíces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo4/Lugar%20de%20la%20raices%20con%20Python.html">Lugar de las raíces usando Python</a></li>
 </ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Respuesta en frecuencia
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Respuesta en frecuencia</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo_frec/respuesta_frecuencial.html">
-   Respuesta Frecuencial de Sistemas lineales y SISO
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html">
-   Estabilidad en Frecuencia
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_frec/respuesta_frecuencial.html">Respuesta Frecuencial de Sistemas lineales y SISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html">Estabilidad en Frecuencia</a></li>
 </ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Diseño de compensadores
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo5/compensadores.html">
-   Compensadores de adelanto y de retraso de fase
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo5/problema_levitador.html">
-   Problema de levitador magnético
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo5/tipo1_lead.html">
-   Problema con sistema de tipo 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo5/lead_lag_design.html">
-   Ecuaciones útiles para el diseño del Lead por análisis en frecuencia
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo5/compensadores.html">Compensadores de adelanto y de retraso de fase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo5/problema_levitador.html">Problema de levitador magnético</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo5/tipo1_lead.html">Problema con sistema de tipo 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo5/lead_lag_design.html">Ecuaciones útiles para el diseño del Lead por análisis en frecuencia</a></li>
 </ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Control Moderno
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Moderno</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo_ve/polos_ceros_EE.html">
-   Polos y Ceros en los modelos de espacio de estados
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo_ve/formas_canonicas.html">
-   Formas canónicas de un espacio de estados
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo_ve/transformacion_formas_canonicas.html">
-   Transformación lineal del espacio de estado
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo_ve/ctrb_obsv.html">
-   Análisis de los sistemas en su forma de espacio de estados
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo_ve/referencia.html">
-   Inserción de referencias
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo_ve/LSR.html">
-   Elección de la ubicación de los polos a lazo cerrado
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo_ve/estimadores.html">
-   Diseño de estimadores
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo_ve/ejemplo_A_ve_motor_cc.html">
-   Diseño para un motor de continua
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo_ve/ejemplo_B_ve_atitud_satelite.html">
-   Diseño del sistema de control del atitud de un satélite
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../modulo_ve/ejemplo_C_ve_pendulo_invertido.html">
-   Diseño del sistema de control del pédulo invertido
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/polos_ceros_EE.html">Polos y Ceros en los modelos de espacio de estados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/formas_canonicas.html">Formas canónicas de un espacio de estados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/transformacion_formas_canonicas.html">Transformación lineal del espacio de estado</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/ctrb_obsv.html">Análisis de los sistemas en su forma de espacio de estados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/referencia.html">Inserción de referencias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/LSR.html">Elección de la ubicación de los polos a lazo cerrado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/estimadores.html">Diseño de estimadores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/ejemplo_A_ve_motor_cc.html">Diseño para un motor de continua</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/ejemplo_B_ve_atitud_satelite.html">Diseño del sistema de control del atitud de un satélite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/ejemplo_C_ve_pendulo_invertido.html">Diseño del sistema de control del pédulo invertido</a></li>
+
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
-                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../../../_sources/sources/notebooks_sources/modulo2/polos y ceros adicionales/Efecto Polos y Ceros Adicionales.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Descargar archivo de cuaderno" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../../_sources/sources/notebooks_sources/modulo2/polos y ceros adicionales/Efecto Polos y Ceros Adicionales.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/gonmolina/CCyVE_book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
-                    class="fab fa-github"></i>repositorio</button></a>
-        <a class="issues-button"
-            href="https://github.com/gonmolina/CCyVE_book/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/modulo2/polos y ceros adicionales/Efecto Polos y Ceros Adicionales.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
-        <a class="edit-button" href="https://github.com/gonmolina/CCyVE_book/edit/master/sources/notebooks_sources/modulo2/polos y ceros adicionales/Efecto Polos y Ceros Adicionales.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edita esta página"><i class="fas fa-pencil-alt"></i>sugerir editar</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+<div class="article-header-buttons">
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-        title="Modo de pantalla completa"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/gonmolina/CCyVE_book/master?urlpath=tree/sources/notebooks_sources/modulo2/polos y ceros adicionales/Efecto Polos y Ceros Adicionales.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contenido
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#efecto-cero-adicional">
-   Efecto Cero adicional
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#efecto-polo-adicional">
-     Efecto Polo Adicional
-    </a>
-   </li>
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gonmolina/CCyVE_book/blob/master/sources/notebooks_sources/modulo2/polos y ceros adicionales/Efecto Polos y Ceros Adicionales.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gonmolina/CCyVE_book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gonmolina/CCyVE_book/edit/master/sources/notebooks_sources/modulo2/polos y ceros adicionales/Efecto Polos y Ceros Adicionales.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gonmolina/CCyVE_book/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/modulo2/polos y ceros adicionales/Efecto Polos y Ceros Adicionales.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/sources/notebooks_sources/modulo2/polos y ceros adicionales/Efecto Polos y Ceros Adicionales.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Descargar archivo de cuaderno"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../../../_sources/sources/notebooks_sources/modulo2/polos y ceros adicionales/Efecto Polos y Ceros Adicionales.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Efecto de los polos adicionales y de los ceros</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efecto-cero-adicional">Efecto Cero adicional</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#efecto-polo-adicional">Efecto Polo Adicional</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="efecto-de-los-polos-adicionales-y-de-los-ceros">
-<h1>Efecto de los polos adicionales y de los ceros<a class="headerlink" href="#efecto-de-los-polos-adicionales-y-de-los-ceros" title="Enlazar permanentemente con este título">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="efecto-de-los-polos-adicionales-y-de-los-ceros">
+<h1>Efecto de los polos adicionales y de los ceros<a class="headerlink" href="#efecto-de-los-polos-adicionales-y-de-los-ceros" title="Permalink to this heading">#</a></h1>
 <p>Hasta ahora hemos estudiado el comportamiento de los sistemas de segundo orden. Ahora estudiaremos como afectan a la respuesta temporal agregar un cero o un polo.</p>
 <p>Estudiemos el siguiente caso, tenemos una función de transferencia de la siguiente forma:</p>
 <div class="math notranslate nohighlight">
@@ -564,32 +569,40 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Hagamos un análisis más detallado:</p>
 <p>Tengamos en cuenta la función de transferencia normalizada de la siguiente manera:</p>
 <p>Observemos que el cero lo agregamos a un factor <span class="math notranslate nohighlight">\(\alpha\)</span> con respecto a la parte real de los polos complejos conjugados: <span class="math notranslate nohighlight">\(s = -\alpha\zeta\omega_n = -\alpha\sigma\)</span></p>
-<div class="section" id="efecto-cero-adicional">
-<h2>Efecto Cero adicional<a class="headerlink" href="#efecto-cero-adicional" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="figure align-default" id="id1">
+<section id="efecto-cero-adicional">
+<h2>Efecto Cero adicional<a class="headerlink" href="#efecto-cero-adicional" title="Permalink to this heading">#</a></h2>
+<figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../../../../_images/fig61.png"><img alt="respuesta" src="../../../../_images/fig61.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Figura 28 </span><span class="caption-text">Respuestas al escalón de  <span class="math notranslate nohighlight">\(G(s)=\dfrac{\dfrac{s}{\alpha\zeta\omega_n}+1}{(s/\omega_n)^2 + 2\zeta(s/\omega_n)}\)</span> para <span class="math notranslate nohighlight">\(\zeta = 0.5\)</span> y para distintos valores de <span class="math notranslate nohighlight">\(\alpha\)</span></span><a class="headerlink" href="#id1" title="Enlace permanente a esta imagen">¶</a></p>
-</div>
-<div class="figure align-default" id="id2">
+<figcaption>
+<p><span class="caption-number">Figura 28 </span><span class="caption-text">Respuestas al escalón de  <span class="math notranslate nohighlight">\(G(s)=\dfrac{\dfrac{s}{\alpha\zeta\omega_n}+1}{(s/\omega_n)^2 + 2\zeta(s/\omega_n)}\)</span> para <span class="math notranslate nohighlight">\(\zeta = 0.5\)</span> y para distintos valores de <span class="math notranslate nohighlight">\(\alpha\)</span></span><a class="headerlink" href="#id1" title="Enlace permanente a esta imagen">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="../../../../_images/fig71.png"><img alt="Sobrepico" src="../../../../_images/fig71.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Figura 29 </span><span class="caption-text">Sobrepico en función de <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\zeta\)</span></span><a class="headerlink" href="#id2" title="Enlace permanente a esta imagen">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figura 29 </span><span class="caption-text">Sobrepico en función de <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\zeta\)</span></span><a class="headerlink" href="#id2" title="Enlace permanente a esta imagen">#</a></p>
+</figcaption>
+</figure>
 <p>Si queremos analizar como se comporta con el cero sobre el eje real positivo (se lo llama cero de no minima fase):</p>
 <p>De la figura concluímos que a medida que el cero se acerca al valor de la parte real de los polos, el sobrepico aumenta. En la figura anterior. vemos como aumenta el sobrepico al disminuir el valor de <span class="math notranslate nohighlight">\(\alpha\)</span> para distintos valores de <span class="math notranslate nohighlight">\(\zeta\)</span> . De la misma podemos afirmar que el valor del sobrepico no es muy afectado por el cero si el mismo se encuentra más allá de un factor 4 de la parte real de los polos complejos conjugados.</p>
 <p>Si escribimos la función de transferencia de la siguiente manera:</p>
 <div class="math notranslate nohighlight">
 \[G(s)=\dfrac{1}{s^2+2\zeta s+1}+\dfrac{1}{\alpha\zeta}\dfrac{s}{s^2+2\zeta s+1}\]</div>
 <p>Notamos que el primer término es la función de transferencia original (sin el cero), y el segundo término es la derivada de la función de transferencia original afectada por una constante <span class="math notranslate nohighlight">\(\dfrac{1}{\alpha\zeta}\)</span>. Por lo tanto, la respuesta a un escalón de la función de transferencia <span class="math notranslate nohighlight">\(G(s)\)</span> será la respuesta a un escalón de la función de transferencia sin el cero, más la derivada de esa respuesta por la constante. De esta manera podemos explicar la presencia de un sobrepico mayor. En la figura siguiente muestra la respuesta a un escalón para el sistema original, su derivada y la suma de ambas (respuesta al sistema con el cero).</p>
-<div class="figure align-default" id="id3">
+<figure class="align-default" id="id3">
 <a class="reference internal image-reference" href="../../../../_images/fig81.png"><img alt="Sobrepico" src="../../../../_images/fig81.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Figura 30 </span><span class="caption-text">Respuesta del sistema original, su derivada y la suma de ambas</span><a class="headerlink" href="#id3" title="Enlace permanente a esta imagen">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figura 30 </span><span class="caption-text">Respuesta del sistema original, su derivada y la suma de ambas</span><a class="headerlink" href="#id3" title="Enlace permanente a esta imagen">#</a></p>
+</figcaption>
+</figure>
 <p>Para el caso de un cero en el semiplano derecho, debemos considerar <span class="math notranslate nohighlight">\(\alpha &lt; 0\)</span>, y sigue valiendo el mismo análisis. La próxima figura, mostramos la evolución de la respuesta a un escalón del sistema original, su derivada cambiada de signo y la respuesta del sistema con un cero en el semiplano derecho (un cero de no mínima fase). De esta figura observamos que la
 respuesta al escalón puede comenzar en sentido contrario a la referencia y luego se corrige.</p>
-<div class="figure align-default" id="id4">
+<figure class="align-default" id="id4">
 <a class="reference internal image-reference" href="../../../../_images/fig91.png"><img alt="Sobrepico" src="../../../../_images/fig91.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Figura 31 </span><span class="caption-text">Respuesta a un escalón del sistema original, su derivada cambiada de signo y la suma de ambas.</span><a class="headerlink" href="#id4" title="Enlace permanente a esta imagen">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figura 31 </span><span class="caption-text">Respuesta a un escalón del sistema original, su derivada cambiada de signo y la suma de ambas.</span><a class="headerlink" href="#id4" title="Enlace permanente a esta imagen">#</a></p>
+</figcaption>
+</figure>
 <p>En la siguiente celda, al ejecutarla, se muestra una figura interactiva donde se puede cambiar el valor del <span class="math notranslate nohighlight">\(\alpha\)</span> y ver como afecta la respuesta temporal, el cero adicional. En rojo punteado se grafica la salida del sistema de orden 2 puro.</p>
 <p><strong>Nota importante:</strong> es necesario instalar el paquete ipywidgets, y es posible que no funciones en Jupyter Lab, si no aparecen los «slider bar» para modificar el <span class="math notranslate nohighlight">\(\alpha\)</span> buscar la solución en la web, o abrir el notebook en Jupyter notebook donde debería funcionar correctamente.</p>
 <div class="cell tag_raise-exception tag_remove-output docutils container">
@@ -646,21 +659,25 @@ respuesta al escalón puede comenzar en sentido contrario a la referencia y lueg
 </div>
 </div>
 </div>
-<div class="section" id="efecto-polo-adicional">
-<h3>Efecto Polo Adicional<a class="headerlink" href="#efecto-polo-adicional" title="Enlazar permanentemente con este título">¶</a></h3>
+<section id="efecto-polo-adicional">
+<h3>Efecto Polo Adicional<a class="headerlink" href="#efecto-polo-adicional" title="Permalink to this heading">#</a></h3>
 <p>Analicemos ahora el caso de agregar un polo. Escribamos la función de transferencia de la siguiente forma:</p>
 <div class="math notranslate nohighlight">
 \[G(s)=\dfrac{1}{\left(\dfrac{s}{\alpha\zeta\omega_n}+1\right)\left[\left(\dfrac{s}{\omega_n}\right)^2+2\zeta\left(\dfrac{s}{\omega_n}\right)+1\right]}, \text{para } \zeta = 0.5, \alpha = 1, 2, 5 ,100, \infty\]</div>
-<div class="figure align-default" id="id5">
+<figure class="align-default" id="id5">
 <a class="reference internal image-reference" href="../../../../_images/fig10.png"><img alt="Sobrepico" src="../../../../_images/fig10.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Figura 32 </span><span class="caption-text">Respuesta a un escalón para el sistema <span class="math notranslate nohighlight">\(G(s) \text{ para } \zeta = 0.5, \alpha = 1, 2, 5 ,100, \infty\)</span></span><a class="headerlink" href="#id5" title="Enlace permanente a esta imagen">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figura 32 </span><span class="caption-text">Respuesta a un escalón para el sistema <span class="math notranslate nohighlight">\(G(s) \text{ para } \zeta = 0.5, \alpha = 1, 2, 5 ,100, \infty\)</span></span><a class="headerlink" href="#id5" title="Enlace permanente a esta imagen">#</a></p>
+</figcaption>
+</figure>
 <p>Como podemos observar de la figura, la presencia de un polo adicional afecta sensiblemente al tiempo de crecimiento, y el mismo se hace más grande cuanto el polo adicional se acerca más al origen.</p>
 <p>En la figura que sigue muestra el comportamiento del tiempo de crecimiento en función del valor de a parametrizada con <span class="math notranslate nohighlight">\(\zeta\)</span>. Del mismo podemos inferir que si el polo adicional está más lejos que 4 veces la parte real de los polos complejos conjugados, el tiempo de crecimiento no es prácticamente afectado.</p>
-<div class="figure align-default" id="id6">
+<figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="../../../../_images/fig11.png"><img alt="Sobrepico" src="../../../../_images/fig11.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Figura 33 </span><span class="caption-text">Tiempo de crecimiento en función de a, para <span class="math notranslate nohighlight">\(\zeta\)</span> = 0.5, 0.7 y 1.0</span><a class="headerlink" href="#id6" title="Enlace permanente a esta imagen">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figura 33 </span><span class="caption-text">Tiempo de crecimiento en función de a, para <span class="math notranslate nohighlight">\(\zeta\)</span> = 0.5, 0.7 y 1.0</span><a class="headerlink" href="#id6" title="Enlace permanente a esta imagen">#</a></p>
+</figcaption>
+</figure>
 <p>En la siguiente celda, al ejecutarla, se muestra una figura interactiva donde se puede cambiar el valor del <span class="math notranslate nohighlight">\(\alpha\)</span> y ver como afecta la respuesta temporal la ubicación del polo adicional. En rojo punteado se grafica la salida del sistema de orden 2 puro.</p>
 <p><strong>Nota importante:</strong> es necesario instalar el paquete ipywidgets, y es posible que no funciones en Jupyter Lab, si no aparecen los «slider bar» para modificar el <span class="math notranslate nohighlight">\(\alpha\)</span> buscar la solución en la web, o abrir el notebook en Jupyter notebook donde debería funcionar correctamente.</p>
 <div class="cell tag_raise-exception tag_remove-output docutils container">
@@ -717,15 +734,9 @@ respuesta al escalón puede comenzar en sentido contrario a la referencia y lueg
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-
-
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"0816d46f53c640e88a2be5e0c35ff601": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "115e79679992413b9cf66c1b55a52ba1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "118ec730ac114aef84b88303c8c8418b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "zeta", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_de176d36b9fd4464939402ce118dd060", "max": 1.01, "min": 0.001, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.02, "style": "IPY_MODEL_25d76304c9aa45bbb8b15f938c65847c", "value": 0.5}}, "1a6efb05a465437fad765cbdf43afe49": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "25d76304c9aa45bbb8b15f938c65847c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "3078fa55b8fb45769c9c9d1a2622ede8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "321235f8e29a4e38a698bdba953cfaea": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "35e321bc492f4173b1c3d577f2f2a56d": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_a3e49bb2f13b469c8d6bfa57f447880c", "msg_id": "", "outputs": [{"data": {"image/png": "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\n", "text/plain": "<Figure size 864x288 with 2 Axes>"}, "metadata": {"needs_background": "light"}, "output_type": "display_data"}]}}, "38fc07fc06d84e63ab6077722e541267": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "465015ca91c743e3bfa050bb15fd888d": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_603baccb7d2444dbac8c78cb7de4a766", "msg_id": "", "outputs": [{"data": {"image/png": "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\n", "text/plain": "<Figure size 864x288 with 2 Axes>"}, "metadata": {"needs_background": "light"}, "output_type": "display_data"}]}}, "4865f7a0d81d45e4a3946b497eca0d73": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "alpha", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_1a6efb05a465437fad765cbdf43afe49", "max": 50.0, "min": -20.01, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.1, "style": "IPY_MODEL_bb5cfaf3ca76426b8c738ab043fd9d0e", "value": 1.0}}, "4d35a8f4b56243399076a2e120c55c88": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "tmax", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_ceb5ad804b044e8f8e71a05d47b9018d", "max": 20, "min": 1, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_f74cc4cbd0d74995824e1df57700eb24", "value": 10}}, "56f1f155bc644869b300d695219d63e3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "603baccb7d2444dbac8c78cb7de4a766": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "623496652b6945f69e70ad061b2aafb4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "6f9186977d564505b38472f7dcf65386": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "tmax", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_115e79679992413b9cf66c1b55a52ba1", "max": 20, "min": 1, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_d1b40a665b024733b108f5560d2edf43", "value": 10}}, "89fa5ebe591745378d286f8b9a25703a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8b914ee47abc4b85bd7cd27f7be74cf9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "wn", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_623496652b6945f69e70ad061b2aafb4", "max": 10.0, "min": 0.01, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.1, "style": "IPY_MODEL_3078fa55b8fb45769c9c9d1a2622ede8", "value": 1.0}}, "8bf8d0516f974a81b574bac406d616d2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "zeta", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_f087ca7a818345a4a0ff70610d666361", "max": 1.01, "min": 0.001, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.02, "style": "IPY_MODEL_56f1f155bc644869b300d695219d63e3", "value": 0.5}}, "96126c4812f54d60ae2718fadf60a447": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_4865f7a0d81d45e4a3946b497eca0d73", "IPY_MODEL_8b914ee47abc4b85bd7cd27f7be74cf9", "IPY_MODEL_118ec730ac114aef84b88303c8c8418b", "IPY_MODEL_4d35a8f4b56243399076a2e120c55c88", "IPY_MODEL_35e321bc492f4173b1c3d577f2f2a56d"], "layout": "IPY_MODEL_a367a443bbf54664a32cf62fa5341135"}}, "a367a443bbf54664a32cf62fa5341135": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a3e49bb2f13b469c8d6bfa57f447880c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bb5cfaf3ca76426b8c738ab043fd9d0e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "c1760558c289479eaa115dbc071940d3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_eecc525e28f54e3a86bdc79236b4ec03", "IPY_MODEL_f9c0cbf9c4c740e8846467bc9e6f197b", "IPY_MODEL_8bf8d0516f974a81b574bac406d616d2", "IPY_MODEL_6f9186977d564505b38472f7dcf65386", "IPY_MODEL_465015ca91c743e3bfa050bb15fd888d"], "layout": "IPY_MODEL_ecebb915d85343198081c5c218eb39fd"}}, "ceb5ad804b044e8f8e71a05d47b9018d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d1b40a665b024733b108f5560d2edf43": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "de176d36b9fd4464939402ce118dd060": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ecebb915d85343198081c5c218eb39fd": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "eecc525e28f54e3a86bdc79236b4ec03": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "alpha", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_321235f8e29a4e38a698bdba953cfaea", "max": 50.0, "min": -20.01, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.1, "style": "IPY_MODEL_38fc07fc06d84e63ab6077722e541267", "value": 1.0}}, "f087ca7a818345a4a0ff70610d666361": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f74cc4cbd0d74995824e1df57700eb24": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "f9c0cbf9c4c740e8846467bc9e6f197b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "wn", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_89fa5ebe591745378d286f8b9a25703a", "max": 10.0, "min": 0.01, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.1, "style": "IPY_MODEL_0816d46f53c640e88a2be5e0c35ff601", "value": 1.0}}}, "version_major": 2, "version_minor": 0}
-</script>
-
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -739,7 +750,7 @@ respuesta al escalón puede comenzar en sentido contrario a la referencia y lueg
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./sources/notebooks_sources/modulo2/polos y ceros adicionales"
         },
         predefinedOutput: true
@@ -747,56 +758,104 @@ respuesta al escalón puede comenzar en sentido contrario a la referencia y lueg
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../respuesta%20temporal/Respuesta%20Temporal.html" title="anterior página">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">anterior</p>
-                <p class="prevnext-title">Respuesta temporal de sistemas dinámicos</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="../../modulo3/realimentacion/carateristicas%20de%20la%20realimentacion.html" title="siguiente página">
-            <div class="prevnext-info">
-                <p class="prevnext-label">siguiente</p>
-                <p class="prevnext-title">Características de la realimentación</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          Por Somebody<br/>
-        
-            &copy; Derechos de autor 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../respuesta%20temporal/Respuesta%20Temporal.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Respuesta temporal de sistemas dinámicos</p>
       </div>
-    </div>
-  
-  <script src="../../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+    </a>
+    <a class="right-next"
+       href="../../modulo3/realimentacion/carateristicas%20de%20la%20realimentacion.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Características de la realimentación</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efecto-cero-adicional">Efecto Cero adicional</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#efecto-polo-adicional">Efecto Polo Adicional</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Somebody
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
