@@ -3,7 +3,7 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - python=3.8
+  - python=3.11
   - matplotlib
   - numpy
   - pandas
@@ -13,4 +13,6 @@ dependencies:
   - sympy
   - tornado
   - jupyter-book
+  - jupytext
+  
   
