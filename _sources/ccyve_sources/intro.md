@@ -1,6 +1,6 @@
-# Material de la materia Control Clásico y por Variables de Estados 2021
+# Material de la materia Control Clásico y por Variables de Estados 2023
 
-En Página web encontraremos gran parte del material digital necesario para seguir el curso de Control Clásico y por Variables de  la carrera de Ingeniería Electrónica de la Universidad Nacional de Río Negro para la cursada 2021.
+En Página web encontraremos gran parte del material digital necesario para seguir el curso de Control Clásico y por Variables de  la carrera de Ingeniería Electrónica de la Universidad Nacional de Río Negro para la cursada 2023.
 
 En este material se desarrollan tanto los temas teóricos como ejemplos prácticos de diseño de control. Para resolver los problemas de la práctica haremos uso de herramientas cálculo computacionales, mediante el lenguaje de programación Python.
 
